@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+
+  <!-- ═══════════════════════════════════════════
+       TOP-LEVEL PROFILE METADATA
+       ═══════════════════════════════════════════ -->
+  <key>PayloadDisplayName</key>
+  <string>Brave Browser – Debloat Profile</string>
+
+  <key>PayloadDescription</key>
+  <string>Disables Brave VPN, Brave Rewards, Brave Wallet, Leo AI, Tor, Brave News, Talk, telemetry, and other bloat. Also hardens Chromium-level privacy settings.</string>
+
+  <key>PayloadIdentifier</key>
+  <string>com.brave.browser.debloat</string>
+
+  <key>PayloadType</key>
+  <string>Configuration</string>
+
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+
+  <!-- Generate your own UUID: run  uuidgen  in Terminal and paste it here -->
+  <key>PayloadUUID</key>
+  <string>A1B2C3D4-E5F6-7890-ABCD-EF1234567890</string>
+
+  <!-- ═══════════════════════════════════════════
+       PAYLOAD CONTENT
+       ═══════════════════════════════════════════ -->
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+
+      <!-- Inner payload metadata -->
+      <key>PayloadType</key>
+      <string>com.apple.ManagedClient.preferences</string>
+
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+
+      <key>PayloadIdentifier</key>
+      <string>com.brave.browser.debloat.prefs</string>
+
+      <!-- Generate a second UUID for this inner payload -->
+      <key>PayloadUUID</key>
+      <string>B2C3D4E5-F6A7-8901-BCDE-F12345678901</string>
+
+      <key>PayloadDisplayName</key>
+      <string>Brave Browser Preferences</string>
+
+      <!-- ─────────────────────────────────────────
+           ACTUAL POLICY KEYS
+           ───────────────────────────────────────── -->
+      <key>PayloadContent</key>
+      <dict>
+        <key>com.brave.Browser</key>
+        <dict>
+          <key>Forced</key>
+          <array>
+            <dict>
+              <key>mcx_preference_settings</key>
+              <dict>
+
+                <!-- ══════════════════════════════
+                     BRAVE-SPECIFIC: CRYPTO / WEB3
+                     ══════════════════════════════ -->
+
+                <!-- Removes BAT rewards UI entirely -->
+                <key>BraveRewardsDisabled</key>
+                <true/>
+
+                <!-- Removes the built-in crypto wallet -->
+                <key>BraveWalletDisabled</key>
+                <true/>
+
+                <!-- Removes the Brave VPN button and upsell -->
+                <key>BraveVPNDisabled</key>
+                <true/>
+
+                <!-- ══════════════════════════════
+                     BRAVE-SPECIFIC: AI / CHAT
+                     ══════════════════════════════ -->
+
+                <!-- Disables Leo, the built-in AI assistant -->
+                <key>BraveAIChatEnabled</key>
+                <false/>
+
+                <!-- ══════════════════════════════
+                     BRAVE-SPECIFIC: OTHER FEATURES
+                     ══════════════════════════════ -->
+
+                <!-- Disables Tor private windows -->
+                <key>TorDisabled</key>
+                <true/>
+
+                <!-- Disables Brave Talk (video calling) -->
+                <key>BraveTalkDisabled</key>
+                <true/>
+
+                <!-- Disables Brave News feed on new tab page -->
+                <key>BraveNewsDisabled</key>
+                <true/>
+
+                <!-- Disables Brave Playlist (video/audio saving) -->
+                <key>BravePlaylistEnabled</key>
+                <false/>
+
+                <!-- ══════════════════════════════
+                     BRAVE-SPECIFIC: TELEMETRY
+                     ══════════════════════════════ -->
+
+                <!-- Disables P3A (Privacy-Preserving Product Analytics) -->
+                <key>BraveP3AEnabled</key>
+                <false/>
+
+                <!-- Disables the daily usage ping -->
+                <key>BraveStatsPingEnabled</key>
+                <false/>
+
+                <!-- Disables Brave Web Discovery (anonymous usage reporting) -->
+                <key>BraveWebDiscoveryEnabled</key>
+                <false/>
+
+                <!-- Disable Google Safe Browsing (sends URLs to Google) -->
+                <!-- Remove or set to 1 if you prefer to keep it -->
+                <key>SafeBrowsingProtectionLevel</key>
+                <integer>0</integer>
+
+                <!-- Disable extended reporting to Google -->
+                <key>SafeBrowsingExtendedReportingEnabled</key>
+                <false/>
+
+                <!-- Disable deep scan prompts -->
+                <key>SafeBrowsingDeepScanningEnabled</key>
+                <false/>
+
+                <!-- Disable Safe Browsing surveys -->
+                <key>SafeBrowsingSurveysEnabled</key>
+                <false/>
+
+                <!-- ══════════════════════════════
+                     CHROMIUM: WEBRTC
+                     Prevents IP leaks via WebRTC
+                     ══════════════════════════════ -->
+
+                <!-- Force WebRTC to only use the default public IP -->
+                <!-- Options: default, default_public_and_private_interfaces,
+                              default_public_interface_only, disable_non_proxied_udp -->
+                <key>WebRtcIPHandling</key>
+                <string>default_public_interface_only</string>
+
+                <!-- Disable WebRTC event log uploading -->
+                <key>WebRtcEventLogCollectionAllowed</key>
+                <false/>
+
+                <!-- ══════════════════════════════
+                     CHROMIUM: HARDWARE / SENSOR APIs
+                     ══════════════════════════════ -->
+
+                <!-- Block USB device access by default (2=block, 3=ask) -->
+                <key>DefaultWebUsbGuardSetting</key>
+                <integer>2</integer>
+
+                <!-- Block Web Bluetooth by default -->
+                <key>DefaultWebBluetoothGuardSetting</key>
+                <integer>2</integer>
+
+                <!-- Block HID (Human Interface Devices) access -->
+                <key>DefaultWebHidGuardSetting</key>
+                <integer>2</integer>
+
+                <!-- Block Serial port access -->
+                <key>DefaultSerialGuardSetting</key>
+                <integer>2</integer>
+
+                <!-- Block sensor access (accelerometer, gyroscope etc.) -->
+                <key>DefaultSensorsSetting</key>
+                <integer>2</integer>
+
+                <!-- Block local font enumeration (fingerprinting risk) -->
+                <key>DefaultLocalFontsSetting</key>
+                <integer>2</integer>
+
+                <!-- ══════════════════════════════
+                     CHROMIUM: GEOLOCATION
+                     ══════════════════════════════ -->
+
+                <!-- Ask before sharing location (1=allow, 2=block, 3=ask) -->
+                <key>DefaultGeolocationSetting</key>
+                <integer>3</integer>
+
+                <!-- ══════════════════════════════
+                     CHROMIUM: MISC PRIVACY
+                     ══════════════════════════════ -->
+
+                <!-- Disable feedback surveys -->
+                <key>FeedbackSurveysEnabled</key>
+                <false/>
+
+              </dict>
+            </dict>
+          </array>
+        </dict>
+      </dict>
+
+    </dict>
+  </array>
+
+</dict>
+</plist>
