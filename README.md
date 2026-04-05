@@ -18,19 +18,7 @@ A `.mobileconfig` profile for macOS that disables Brave Browser's crypto, AI, VP
 - Disables P3A analytics, stats ping, and Web Discovery
 
 **Chromium-level hardening**
-
-- Disables the built-in password manager
-- Disables address and credit card autofill
-- Disables Payment API
-- Disables search suggestions
-- Disables Privacy Sandbox ad APIs
-- Disables Google Safe Browsing URL reporting
-- Restricts WebRTC to the default public interface (prevents IP leaks)
-- Blocks USB, Bluetooth, HID, Serial, and Sensor access by default
 - Sets geolocation to ask-before-sharing
-- Prevents Brave running in the background
-- Disables Cast / media router
-- Disables remote access
 - Disables feedback surveys
 
 ## Installation
