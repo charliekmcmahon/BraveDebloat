@@ -127,13 +127,13 @@
                 <key>SafeBrowsingProtectionLevel</key>
                 <integer>0</integer>
 
-                <!-- Disable extended reporting to Google -->
+                <!-- Disable extended reporting to Google (NOTE: disabling this means that downloads aren't scanned for malware -->
                 <key>SafeBrowsingExtendedReportingEnabled</key>
                 <false/>
 
                 <!-- Disable deep scan prompts -->
                 <key>SafeBrowsingDeepScanningEnabled</key>
-                <false/>
+                <true/>
 
                 <!-- Disable Safe Browsing surveys -->
                 <key>SafeBrowsingSurveysEnabled</key>
