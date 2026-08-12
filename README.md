@@ -2,6 +2,8 @@
 
 A `.mobileconfig` profile for macOS that disables Brave Browser's crypto, AI, VPN, and telemetry features using managed policy keys. Settings are locked at the system level and apply immediately after installation.
 
+[Download profile](https://github.com/charliekmcmahon/BraveDebloat/raw/refs/heads/main/BraveDebloat.mobileconfig)
+
 ## What it does
 
 **Brave-specific**
