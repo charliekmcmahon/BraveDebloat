@@ -125,7 +125,7 @@
                 <!-- Disable Google Safe Browsing (sends URLs to Google) -->
                 <!-- Remove or set to 1 if you prefer to keep it -->
                 <key>SafeBrowsingProtectionLevel</key>
-                <integer>0</integer>
+                <integer>1</integer>
 
                 <!-- Disable extended reporting to Google (NOTE: disabling this means that downloads aren't scanned for malware -->
                 <key>SafeBrowsingExtendedReportingEnabled</key>
